@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replica-ex007</title>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+        h1 {
+            font: bold 20pt arial;
+        }
+
+        .enterFirst{
+            height: 20px;
+            width: 60px;
+            background-color: rgba(128, 128, 128, 0.39);
+            border-radius: 10%;
+            font: normal 10pt arial;
+        }
+        .enterGeneral{
+            margin-top: 20px;
+            height: 20px;
+            width: 60px;
+            background-color: rgba(128, 128, 128, 0.39);
+            border-radius: 10%;
+            font: normal 10pt arial;
+        }
+        .buttonToResult {
+            width: 100px;
+            height: 25px;
+        }
+
+        .result {
+            margin-top: 5px;
+            font: normal 15pt arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <!-- Multiplicação -->
+    <input type="number" class="enterFirst" id="box1"> x 
+    <input type="number" class="enterFirst" id="box2">
+    <input type="button" id="buttonMultiplier" class="buttonToResult" value="Multiplicar">
+    <div id="resultMultiplier" class="result">Resultado aqui.</div>
+
+    <!-- Soma -->
+     <input type="number" class="enterGeneral" id="box3"> + 
+     <input type="number" class="enterGeneral" id="box4">
+     <input type="button" id="buttonSum" class="buttonToResult" value="Somar">
+     <div id="resultSum" class="result">Resultado aqui.</div>
+
+     <!-- Divisão -->
+      <input type="number" class = "enterGeneral" id="box5"> /
+      <input type="number" class="enterGeneral" id="box6">
+      <input type="button" class="buttonToResult" id="buttonDivision" value="Dividr">
+      <div id="resultDivision" class="result">Resultado aqui.</div>
+
+      <!-- Subtração -->
+       <input type="number" class="enterGeneral" id="box7"> -
+       <input type="number" class="enterGeneral" id="box8">
+       <input type="button" class="buttonToResult" id="buttonSubtraction" value="Subtrair">
+       <div class="result" id="resultSubtraction">Resultado aqui.</div>
+       
+    <script>
+        const buttonMultiplier = window.document.getElementById("buttonMultiplier");
+        buttonMultiplier.addEventListener("click", function() {
+            const tn1 = window.document.getElementById("box1");
+            const num1 = Number(tn1.value);
+            const tn2 = window.document.getElementById("box2");
+            const num2 = Number(tn2.value);
+            const res = window.document.getElementById("resultMultiplier");
+
+            res.innerHTML = `${num1} x ${num2} é <strong>${(num1*num2).toFixed(2)}</strong>.`;
+        })
+
+        const buttonSum = window.document.querySelector("input#buttonSum");
+        buttonSum.addEventListener("click", function() {
+            const tn3 = window.document.querySelector("input#box3");
+            const num3 = Number(tn3.value);
+            const tn4 = window.document.querySelector("input#box4")
+            const num4 = Number(tn4.value);
+            const res = window.document.querySelector("div#resultSum");
+
+            res.innerHTML = `${num3} + ${num4} = <strong>${(num3+num4).toFixed(2)}</strong>.`;
+        })
+
+        const buttonDivision = window.document.getElementById("buttonDivision");
+        buttonDivision.addEventListener("click", function(){
+            const tn5 = window.document.getElementById("box5");
+            const num5 = Number(tn5.value);
+            const tn6 = window.document.getElementById("box6");
+            const num6 = Number(tn6.value);
+            const res = window.document.getElementById("resultDivision");
+            const att = num6 == 0 ? "Não é possível dividir por 0." : (num5/num6).toFixed(3)
+
+            res.innerHTML = `${num5} / ${num6} = <strong>${att}</strong>`
+        })
+
+        const buttonSubtraction = window.document.querySelector("input#buttonSubtraction");
+        buttonSubtraction.addEventListener("click", function(){
+            const tn7 = window.document.getElementById("box7");
+            num7 = Number(tn7.value);
+            const tn8 = window.document.getElementById("box8");
+            num8 = Number(tn8.value);
+            res = window.document.getElementById("resultSubtraction");
+
+            res.innerHTML = `${num7} - ${num8} = <strong>${(num7-num8).toFixed(2)}</strong>`;
+        })
+    </script>
+</body>
+</html>
